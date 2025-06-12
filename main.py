@@ -7,7 +7,8 @@ if __name__ == "__main__":
     top_features = get_top_features(df, n=20)
     clf, vectorizer = train_and_evaluate(df, top_features)
     # Example 
-    messages = ["Free entry in a competition to win a $1000 gift card!","Congratulations! You've won a free ticket to Bahamas!", "Hey, how are you doing today?"]
+    messages = input("Enter messages to classify (comma separated): ").split(',')
+    messages = [msg.strip() for msg in messages]  
     predictions = predict_messages(clf, vectorizer, messages)
     print(predictions) 
         # 1 = Spam ; 0 = Ham/Legitmate Message
